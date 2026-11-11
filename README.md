@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./public/logo.png" alt="krishna-developer-portfolio Logo" width="160" />
+</p>
+
 # Krishna Kumar — Developer Portfolio & Resume Website
 
 > Modern, responsive developer portfolio showcasing enterprise Salesforce engineering, AI automation, and full-stack projects.
