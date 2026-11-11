@@ -1,0 +1,81 @@
+# ==============================================================================
+# InfinityFree / Apache Production Configuration for Krishna Kumar Portfolio
+# ==============================================================================
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 1. Force HTTPS (InfinityFree SSL enabled)
+  # Uncomment the following two lines if you have enabled Free SSL in InfinityFree:
+  # RewriteCond %{HTTPS} off
+  # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # 2. Prevent Direct Access to Hidden Files (e.g. .git, .env)
+  RewriteRule "(^|/)\.(?!well-known)" - [F]
+
+  # 3. Handle Single Page Application (SPA) & Clean Direct URL Fallback
+  # If the requested file or directory does not exist, serve index.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# ==============================================================================
+# Performance & Compression (mod_deflate / GZIP)
+# ==============================================================================
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/xml
+</IfModule>
+
+# ==============================================================================
+# Browser Caching Headers (mod_expires / mod_headers)
+# ==============================================================================
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Vite hashed production assets (cache for 1 year)
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType application/x-javascript "access plus 1 year"
+  
+  # Images and Icons (cache for 1 month)
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
+
+  # Resumes and documents (cache for 1 day to allow updates)
+  ExpiresByType application/pdf "access plus 1 day"
+  ExpiresByType application/vnd.openxmlformats-officedocument.wordprocessingml.document "access plus 1 day"
+
+  # HTML files (no cache or 0 seconds for instant updates)
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# ==============================================================================
+# Security Headers
+# ==============================================================================
+<IfModule mod_headers.c>
+  # Prevent MIME type sniffing
+  Header set X-Content-Type-Options "nosniff"
+
+  # Prevent Clickjacking
+  Header set X-Frame-Options "SAMEORIGIN"
+
+  # Referrer Policy
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ==============================================================================
+# Custom Error Pages
+# ==============================================================================
+ErrorDocument 404 /index.html
