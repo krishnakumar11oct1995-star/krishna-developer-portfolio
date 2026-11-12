@@ -8,3 +8,5 @@ dist/
 !public/logo.png
 !assets/
 !assets/**
+*.jpeg
+WhatsApp Image*

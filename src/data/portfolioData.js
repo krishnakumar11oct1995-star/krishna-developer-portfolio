@@ -10,7 +10,6 @@ export const personalInfo = {
   shortBio: "Salesforce Technical Lead with expertise in end-to-end enterprise implementations, complex system architecture, and team leadership across Healthcare, Insurance, and Manufacturing domains. Proven track record designing scalable routing engines handling 1M+ daily transactions, managing multi-million record Snowflake/MuleSoft data pipelines, and developing advanced LWC applications.",
   location: "Hyderabad, India",
   email: "bshakthy@gmail.com",
-  phone: "+91-9442066654",
   trailhead: "https://trailblazer.me/id/krishnakumar1995",
   linkedin: "https://linkedin.com",
   github: "https://github.com",
@@ -350,7 +349,6 @@ export const contactInfo = {
   name: "Krishna Kumar",
   role: "Salesforce Developer & Technical Lead",
   email: "bshakthy@gmail.com",
-  phone: "+91-9442066654",
   location: "Hyderabad, India",
   trailhead: "https://trailblazer.me/id/krishnakumar1995",
   status: "Open to Technical Lead, Senior Developer & Salesforce Architecture Opportunities"

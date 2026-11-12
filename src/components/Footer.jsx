@@ -4,7 +4,6 @@ import {
   ArrowUp, 
   Award, 
   Mail, 
-  Phone, 
   FileText, 
   ShieldCheck, 
   ExternalLink,
@@ -95,15 +94,6 @@ export default function Footer({ onNavigate }) {
                 <Mail className="w-5 h-5" aria-hidden="true" />
               </a>
 
-              {/* Phone / WhatsApp */}
-              <a
-                href={`tel:${personalInfo.phone.replace(/[^0-9+]/g, '')}`}
-                className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 hover:border-emerald-400 flex items-center justify-center text-slate-300 hover:text-emerald-400 transition-all min-tap-target"
-                aria-label={`Call Krishna Kumar at ${personalInfo.phone}`}
-              >
-                <Phone className="w-5 h-5" aria-hidden="true" />
-              </a>
-
             </div>
           </div>
 
@@ -152,13 +142,6 @@ export default function Footer({ onNavigate }) {
                 <Mail className="w-4 h-4 text-sky-400 flex-shrink-0" />
                 <a href={`mailto:${personalInfo.email}`} className="text-slate-200 hover:text-sky-300 transition-colors">
                   {personalInfo.email}
-                </a>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-emerald-400 flex-shrink-0" />
-                <a href={`tel:${personalInfo.phone.replace(/[^0-9+]/g, '')}`} className="text-slate-200 hover:text-emerald-300 transition-colors">
-                  {personalInfo.phone}
                 </a>
               </div>
 

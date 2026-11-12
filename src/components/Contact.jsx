@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { 
   Mail, 
-  Phone, 
   MapPin, 
   Send, 
   Copy, 
@@ -108,29 +107,6 @@ export default function Contact() {
                 aria-label="Copy Email"
               >
                 {copiedField === 'email' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
-              </button>
-            </div>
-
-            {/* Phone Box */}
-            <div className="glass-card rounded-2xl p-5 border border-slate-800 flex items-center justify-between group hover:border-emerald-500/30 transition-all">
-              <div className="flex items-center gap-3.5">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-[11px] font-mono text-slate-400 uppercase">Phone &amp; WhatsApp</div>
-                  <a href={`tel:${personalInfo.phone.replace(/[^0-9+]/g, '')}`} className="font-semibold text-sm text-slate-200 group-hover:text-emerald-400 transition-colors">
-                    {personalInfo.phone}
-                  </a>
-                </div>
-              </div>
-              <button
-                onClick={() => handleCopy(personalInfo.phone, 'phone')}
-                className="p-2 rounded-lg text-slate-400 hover:text-white bg-slate-900 hover:bg-slate-800 transition-colors border border-slate-800"
-                title="Copy Phone Number"
-                aria-label="Copy Phone Number"
-              >
-                {copiedField === 'phone' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
               </button>
             </div>
 
